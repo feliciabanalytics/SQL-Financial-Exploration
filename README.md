@@ -19,15 +19,15 @@ This exploratory project leverages a synthetically generated hospitality dataset
 
 ### Revenue Performance & Projections
 * Top Growth Units: Room Service leads with a **22% projected growth rate**, followed by Breakfast at **20%**. 
-* Stable Performers**: The Restaurant and Rooftop bar units show consistent **14%** growth trajectories.
+* Stable Performers: The Restaurant and Rooftop bar units show consistent **14%** growth trajectories.
 
 ### Budget vs. Actual Variance
-* Favorable Trends: The Breakfast unit shows a **3% favorable revenue variance**, performing above the established budget.
-* Operational Risks: The Rooftop unit is currently experiencing an **18% unfavorable variance (cost overrun)**, suggesting a need for tighter expense controls.
+* Favorable Trends: The Rooftop unit shows a **5%/+$123K favorable revenue variance**, performing above the established budget.
+* Operational Risks: The Rooftop unit is currently experiencing an **18% unfavorable variance ($242K cost overrun)**, suggesting a need for tighter expense controls.
 
 ###COGS & Expense Analysis
 * High Variance: Banquet Direct COGS (Food and Beverage) has increased **74% YoY** (Q1 2025 vs Q1 2026).
-* fficiency Gains: Outstanding Maintenance expenses were reduced by **100%** in the current period, indicating improved facility management.
+* Efficiency Gains: Outstanding Maintenance expenses were reduced by **100%** in the current period, indicating improved facility management.
 
 ## Demonstrated Skills
 * Business Acumen: Providing actionable analysis for stakeholder reviews and site controller meetings.
