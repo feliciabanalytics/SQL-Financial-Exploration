@@ -1,13 +1,14 @@
-# Hotel Operations & Budget Variance Engine
+# Hotel Food & Beverage Operations (Financial Data Exploration)
 
 ## Project Overview
-This exploratory project leverages a hospitality dataset to automate the tracking of revenue and expenses across multiple business units. By bridging the gap between raw database code (SQL) and executive-level insights, this project identifies growth trends, budget overruns, and operational risks.
+This exploratory project leverages a synthetically generated hospitality dataset to automate the tracking of revenue and expenses across multiple business units. By bridging the gap between raw database code (SQL) and executive-level insights, this project identifies growth trends, budget overruns, and operational risks.
 
 ## The Data
 * fact_revenue.csv - Transactional income records including: unit identifier (Breakfast, Hall, Restaurant, etc.), amount, and date.
 * fact_expenses.csv - Detailed cost records including: COGS (Food/Beverage), labor costs, and maintenance expenses.
-***fact_budget.csv** - Financial targets including: planned revenue and expense benchmarks for variance comparison.
-***Note**: All data represents multi-source financial metrics. Analysis focuses on translating raw ledger entries into "Source of Truth" dashboards for operational stakeholders. This dataset is synthenthically generated. 
+* fact_budget.csv - Financial targets including: planned revenue and expense benchmarks for variance comparison.
+  
+**Note**: All data represents multi-source financial metrics. Analysis focuses on translating raw ledger entries into "Source of Truth" dashboards for operational stakeholders.  
 
 ## Business Questions Explored
 * Unit Performance: In which business units are we seeing the highest projected growth? Which units require resource re-allocation?
