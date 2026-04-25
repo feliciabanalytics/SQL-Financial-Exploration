@@ -1,0 +1,80 @@
+Business Inquiry #1					
+In which business units are we seeing the highest projected growth? Which units may require resource re-allocation?					
+								
+SQL Query #1 					
+SELECT					
+unit, 					
+SUM(CASE WHEN month_year Like '%2024' AND type = 'revenue' then amount Else 0 END) As [2024plannedrev],					
+SUM(CASE WHEN month_year Like '%2025' AND type = 'revenue' then amount Else 0 END) As [2025plannedrev],					
+SUM(CASE WHEN month_year Like '%2026' AND type = 'revenue' then amount Else 0 END) As [2026plannedrev]					
+FROM					
+fact_budget					
+group by unit					
+					
+Business Inquiry	#2			
+How are units performaing against their planned 2025 budget? Which units have cost overruns and may require further review?									
+					
+SQL Query #2a		
+SELECT		
+revactuals.unit,		
+revactuals.[2025revactuals],		
+budget.[2025revbudget]		
+FROM		
+--define table containing revenue actuals		
+(Select		
+ Unit,		
+ Sum(amount) AS [2025revactuals]		
+ FROM fact_revenue		
+ Where month_year Like '%2025'		
+ Group By Unit) AS revactuals		
+Left Join		
+-- define table containing budgeted revenue		
+(SELECT		
+Unit,		
+SUM(Case WHEN type = 'revenue' Then amount else 0 END) AS [2025revbudget]		
+FROM fact_budget 		
+Where month_year Like '%2025'		
+Group by Unit) AS budget		
+-- join revenue budget and actuals for query		
+ON revactuals.unit = budget.unit							
+
+SQL Query #2b		
+SELECT		
+expactuals.unit,		
+expactuals.[2025expenseactuals],		
+budget.[2025expensebudget]		
+FROM		
+--define table containing revenue actuals		
+(Select		
+ Unit,		
+ Sum(amount) AS [2025expenseactuals]		
+ FROM fact_expenses		
+ Where date Like '%2025'		
+ Group By Unit) AS expactuals		
+Left Join		
+-- define table containing budgeted revenue		
+(SELECT		
+Unit,		
+SUM(Case WHEN type = 'expense' Then amount else 0 END) AS [2025expensebudget]		
+FROM fact_budget 		
+Where month_year Like '%2025'		
+Group by Unit) AS budget		
+-- join expense budget and actuals for query		
+ON expactuals.unit = budget.unit		
+
+Business Inquiry #3
+How do current quarterly expenses (COGS/Labor) compare to the previous year's performance?
+
+SQL Query #3		
+SELECT		
+type,		
+ROUND(SUM(CASE WHEN date Like '%2024'then amount Else 0 END), 0) As [2024 actuals],		
+ROUND(SUM(CASE WHEN date Like '%2025'then amount Else 0 END), 0) As [2025 actuals],		
+ROUND(SUM(CASE WHEN date Like '%2026'then amount Else 0 END), 0) As [2026 actuals],		
+ROUND(SUM(CASE WHEN date Like '%/01/2026'then amount Else 0 END), 0) As [202601 actuals],		
+ROUND(SUM(CASE WHEN date Like '%/02/2026'then amount Else 0 END), 0) As [202602 actuals],		
+ROUND(SUM(CASE WHEN date Like '%/03/2026'then amount Else 0 END), 0) As [202603 actuals]		
+FROM		
+fact_expenses		
+Where unit is 'Special Events'		
+Group BY type		
